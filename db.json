@@ -1,0 +1,174 @@
+{
+  "jobs": [
+    {
+      "ref": "AB2345",
+      "id": "ca66d740-e41d-4b70-aea1-a8a20759a647",
+      "title": "Javascript ninja 3.0",
+      "productType": 1,
+      "skills": [
+        "javascript",
+        "angular",
+        "php"
+      ],
+      "description": [
+        "Lorem ipsum arirento perfide none scrummer bat level"
+      ],
+      "languages": [
+        {
+          "name": "german",
+          "level": 2
+        },
+        {
+          "name": "english",
+          "level": 1
+        }
+      ],
+      "activated": true
+    },
+    {
+      "ref": "BG6374",
+      "id": "ca66d895-e41d-4b70-aea1-a8a20759a647",
+      "title": "PhP Yoggy",
+      "productType": 2,
+      "skills": [
+        "php7",
+        "OOP"
+      ],
+      "description": [
+        "Lorem ipsum arirento perfide none scrummer bat level"
+      ],
+      "languages": [
+        {
+          "name": "german",
+          "level": 1
+        },
+        {
+          "name": "english",
+          "level": 2
+        },
+        {
+          "name": "english",
+          "level": 3
+        }
+      ],
+      "activated": false
+    },
+    {
+      "id": "69e33f2b-2f2a-4cea-94d6-cc4949299e43",
+      "title": "Activated Limited",
+      "description": "This is description",
+      "ref": "Activated Limited",
+      "productType": 2,
+      "activated": true,
+      "languages": [
+        {
+          "name": "engleski",
+          "level": "2"
+        },
+        {
+          "name": "nemacki",
+          "level": 1
+        }
+      ],
+      "skills": [
+        "skill1",
+        " skill2",
+        " skill3",
+        " skill4"
+      ]
+    },
+    {
+      "id": "7c2794ed-c2d7-4d06-8ec8-f1d90a2cbcd9",
+      "title": "Deactivated Limited",
+      "description": "This is decription 2",
+      "ref": "Deactivated Limited",
+      "productType": 2,
+      "activated": false,
+      "languages": [
+        {
+          "name": "aaaa",
+          "level": 1
+        }
+      ],
+      "skills": [
+        "test1",
+        "test2",
+        " test test test test "
+      ]
+    },
+    {
+      "id": "5363194a-dcef-468b-83a5-06d6404b6460",
+      "title": "Deactivated Free",
+      "description": "Thi si description",
+      "ref": "Deactivated Free",
+      "productType": 1,
+      "activated": false,
+      "languages": [
+        {
+          "name": "aaa",
+          "level": 1
+        }
+      ],
+      "skills": null
+    },
+    {
+      "id": "31ff1368-fd9d-4dad-81e1-988cbf3ce14b",
+      "title": "Activated Premium",
+      "description": "This is description",
+      "ref": "Activated Premium",
+      "productType": 3,
+      "activated": true,
+      "languages": [
+        {
+          "name": "bbb",
+          "level": 1
+        }
+      ],
+      "skills": [
+        "bbb"
+      ]
+    },
+    {
+      "id": "71142184-c1af-4d7f-8cd6-d1649713ec3f",
+      "title": "Deactivated Premium",
+      "description": "This is description 123",
+      "ref": "Deactivated Premium",
+      "productType": 3,
+      "activated": false,
+      "languages": [
+        {
+          "name": "ccc",
+          "level": 1
+        },
+        {
+          "name": "ggg",
+          "level": "3"
+        }
+      ],
+      "skills": [
+        "ccc"
+      ]
+    },
+    {
+      "id": "abf28c87-3286-459f-9b16-6c431f51cc00",
+      "title": "Final Test",
+      "description": "Final description",
+      "ref": "Activated Limited ref1",
+      "productType": 2,
+      "activated": true,
+      "languages": [
+        {
+          "name": "Angular",
+          "level": "2"
+        },
+        {
+          "name": "Java",
+          "level": "2"
+        }
+      ],
+      "skills": [
+        "123456 abcdefg"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+<div>
+  <h1 class="title has-text-centered">
+    <span *ngIf="job && job.id; else create">Edit job</span>
+    <ng-template #create>Add job</ng-template>
+  </h1>
+</div>
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter ">
+    <form [formGroup]="form">
+      <div class="field">
+        <div class="label is-normal">
+          <label class="label" [ngClass]="isRequired('title') ? 'required-mark' : ''">Title</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input formControlName="title" class="input" type="text" [placeholder]="'Title'"
+                     autocomplete="off">
+            </div>
+            <p class="help is-danger" *ngIf="form.get('title').invalid && form.get('title').errors &&
+                    (form.get('title').dirty || form.get('title').touched)">
+              This field is required
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label is-normal">
+          <label class="label" [ngClass]="isRequired('ref') ? 'required-mark' : ''">Reference</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input formControlName="ref" class="input" type="text" [placeholder]="'Reference'"
+                     autocomplete="off">
+            </div>
+            <div *ngIf="(form.get('ref').invalid && form.get('ref').errors &&
+                    (form.get('ref').dirty || form.get('ref').touched))">
+              <p class="help is-danger" *ngIf="form.get('ref').hasError('required')">
+                This field is required.
+              </p>
+              <p class="help is-danger" *ngIf="form.get('ref').hasError('referenceExists')">
+                Reference already exists.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label is-normal">
+          <label class="label" [ngClass]="isRequired('description') ? 'required-mark' : ''">Description</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea [rows]="5" formControlName="description" class="textarea" type="textarea"
+                        [placeholder]="'Description'"
+                        autocomplete="off"></textarea>
+            </div>
+            <p class="help is-danger" *ngIf="form.get('description').invalid && form.get('description').errors &&
+                    (form.get('description').dirty || form.get('description').touched)">
+              This field is required
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label is-normal">
+          <label class="label" [ngClass]="isRequired('productType') ? 'required-mark' : ''">Product type</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select formControlName="productType">
+                  <option [value]="1">Free</option>
+                  <option [value]="2">Limited</option>
+                  <option [value]="3">Premium</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label">
+          <label class="label" [ngClass]="isRequired('productType') ? 'required-mark' : ''">Activated</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" [value]="true" formControlName="activated">
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" [value]="false" formControlName="activated">
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label is-normal">
+          <label class="label" [ngClass]="isRequired('skills') ? 'required-mark' : ''">Skills</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input formControlName="skills" class="input" type="text" [placeholder]="'Skills'"
+                     autocomplete="off">
+            </div>
+            <p class="help is-danger" *ngIf="form.get('skills').invalid && form.get('skills').errors &&
+                    (form.get('skills').dirty || form.get('skills').touched)">
+              This field is required
+            </p>
+            <p class="help">
+              Please separate skills with ','
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field" formArrayName="languages">
+        <div class="label is-normal">
+          <label class="label">Languages</label>
+        </div>
+        <div class="field-body mb-3" *ngFor="let type of languageControls; let i = index;" [formGroupName]="i">
+          <div class="field">
+            <div class="columns is-vcentered">
+              <div class="column is-5">
+                <div class="control">
+                  <input formControlName="name" class="input" type="text" [placeholder]="'Name'"
+                         autocomplete="off">
+                </div>
+                <p class="help is-danger" *ngIf="type.get('name').invalid && type.get('name').errors &&
+                    (type.get('name').dirty || type.get('name').touched)">
+                  This field is required
+                </p>
+              </div>
+              <div class="column is-5">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select formControlName="level">
+                      <option [value]="'1'">Beginner</option>
+                      <option [value]="'2'">Intermediate</option>
+                      <option [value]="'3'">Fluent</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-2">
+                <button class="button is-danger is-pulled-right is-small" (click)="removeLanguageItem(i)">Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <button class="button is-primary is-small"
+                  (click)="addLanguage()"><span>Add Language</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="field is-horizontal mb-5">
+        <div class="field-label">
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button class="button is-success is-pulled-right" [disabled]="!form.valid" (click)="save()">
+                <span *ngIf="job && job.id; else createButton">Edit</span>
+                <ng-template #createButton>Create</ng-template>
+              </button>
+              <button class="button is-danger is-pulled-right mr-2" *ngIf="job && job.id;" (click)="delete(job)">
+                <span>Delete</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

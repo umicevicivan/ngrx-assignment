@@ -1,0 +1,45 @@
+<section class="container is-max-desktop">
+  <h1 class="title">Job List</h1>
+  <form [formGroup]="form" class="mb-3 is-flex is-justify-content-end">
+    <div class="field mr-2">
+      <div class="label is-normal">
+        <label class="label">Filter by:</label>
+      </div>
+      <div class="field-body">
+        <div class="field is-narrow">
+          <div class="control">
+            <div class="select">
+              <select formControlName="sortBy">
+                <option [value]="'ALL'">All</option>
+                <option [value]="'ACTIVATED'">Activated</option>
+                <option [value]="'DEACTIVATED'">Deactivated</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="label is-normal">
+        <label class="label">Product type:</label>
+      </div>
+      <div class="field-body">
+        <div class="field is-narrow">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select formControlName="productType">
+                <option [value]="'ALL'">All</option>
+                <option [value]="1">Free</option>
+                <option [value]="2">Limited</option>
+                <option [value]="3">Premium</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <app-jobs-list
+    [jobs]="jobs$ | async">
+  </app-jobs-list>
+</section>
